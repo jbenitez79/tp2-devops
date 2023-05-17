@@ -1,48 +1,62 @@
-VOID company
-Back-End Development Test - League of Legends Integration
+# League of Legends REST API
 
-Welcome, we need to test your abilities in back-end development, for that, please ensure to have created a Riot Account, in https://developer.riotgames.com/
+This project is a RESTful API that utilizes the League of Legends API to retrieve game data. It is built using Node.js, NestJS, TypeORM, PostgreSQL, and TypeScript. The architecture follows the MVC (Model-View-Controller) pattern with additional components such as Services, Repositories and Entities.
 
-RULES:
-The test MUST be in Nest.js with PostgreSQL and TypeORM.
-The project needs to have an architecture based on: Controllers, Services, Repositories and Entities.
-Unit testing and integration testing is a bonus point but not required.
-Caching techniques are bonus points but not required.
-The delivery must have a Postman collection and the source code.
+**Note: The project is not meant to be used. It is an example project of a third party API integration**
 
-SCOPE:
-For the project you will have to develop a medium sized set of endpoints integrating with https://developer.riotgames.com/apis
-Each endpoint needs to receive a summoner name and a summoner region.
+## Features
 
-1) Get recent matches for a player paginated by a size and a limit.
-a) Detailed with Infos like champion used, win, kda, kills, csPerMinute, runes, assists, spells…
-b) Filter by queueId:
-RANKED_SOLO_5x5: 420,
-RANKED_FLEX_SR: 440,
-NORMAL_BLIND_PICK: 430,
-NORMAL_DRAFT_PICK: 400,
-ARAM: 450,
-ALL: 0
+1. **Recent Matches**:
+   - Retrieves recent matches for a player with pagination options.
+   - Provides detailed information about each match, including the champion used, win status, KDA (kills, deaths, assists), CS per minute, runes, assists, and spells.
 
-2) Summary for a player:
-a) Current Rank: Name and Image
-b) Current League Points
-c) Wins, Losses, KDA, average of CSPerMinute, average of Vision Score
-d) Filter by queueId:
-RANKED_SOLO_5x5: 420,
-RANKED_FLEX_SR: 440,
-NORMAL_BLIND_PICK: 430,
-NORMAL_DRAFT_PICK: 400,
-ARAM: 450,
-ALL: 0
+2. **Player Summary**:
+   - Fetches a summary of a player's statistics.
+   - Displays the current rank with name and image.
+   - Shows the player's current league points, wins, losses, KDA, average CS per minute, and average vision score.
 
-3) Leaderboards for already calculated summoner name and summoner region:
-a) For each player that was requested on endpoint for matches or summary, calculate his position (Top #1, Top #2…) on these criteria:
-League Points
-Win Rate
-b) The endpoint for this task must be the return of the current position, example:
-{ leaguePoints: { top: 3 }, winRate: { top: 9 } }
+3. **Leaderboards**:
+   - Calculates the position of each player based on specific criteria.
+   - The criteria include League Points and Win Rate.
+   - Returns the current position of a player in the leaderboard.
 
-EXPECTED RESULTS:
-1) Postman Collection with all routes working (any errors on any route will discount points for each route not working).
-2) Source Code.
+## Setup and Usage
+
+1. Clone the repository and navigate to the project directory.
+2. Install the needed dependencies.
+3. Configure the PostgreSQL database connection by providing the necessary credentials in the .env file. (there's a sample.env)
+4. Configure your league of legends developer API key (https://developer.riotgames.com/)
+
+Run the following command to start the application:
+`npm run start`
+
+The API endpoints can be accessed using a tool like Postman. You can import the provided Postman collection to test the available endpoints.
+
+## Caching
+
+The project incorporates request caching to improve performance and reduce the number of requests made to the League of Legends API. This caching mechanism helps minimize the response time for subsequent requests.
+
+## API Endpoints
+
+1. **POST /player/recentMatches**
+   - Retrieves recent matches for a player with pagination support.
+2. **POST /player/summary**
+   - Fetches a summary of a player's statistics.
+3. **POST /player/leaderboard**
+   - Calculates the position of a player in the leaderboards based on League Points and Win Rate.
+
+## Contributing
+
+Contributions are **NOT welcome**. If you encounter any issues or have suggestions for improvements, please **DON'T open** an issue or submit a pull request.
+
+## License
+
+MIT License
+
+Copyright (c) [2023] [Lautaro Colella]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
