@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b9d0329c-5a48-4fd1-a090-f56e24145f36",
-		"name": "Void backend test",
+		"name": "Third party API integration",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25347051"
 	},
