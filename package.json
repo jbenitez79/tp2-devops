@@ -1,7 +1,7 @@
 {
-  "name": "void_test",
+  "name": "LOL RESTful API",
   "version": "1.0",
-  "description": "Void backend test",
+  "description": "Third party API integration",
   "author": "Lautaro Colella",
   "private": true,
   "license": "MIT",
