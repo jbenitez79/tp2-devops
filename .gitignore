@@ -35,4 +35,5 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 
-.env
+# .env
+# COMENTADO EL .ENV PARA QUE SE SUBA PARA EL REPO DE JULI, SON DATOS FALSOS DA IGUAL
